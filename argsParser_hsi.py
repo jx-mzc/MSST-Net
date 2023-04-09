@@ -13,7 +13,7 @@ def argsParser():
 
 
     ### log setting
-    parser.add_argument('--save_dir', type=str, default='',
+    parser.add_argument('--save_dir', type=str, default='./train_hsi/cave/8/1',
                         help='Directory to save log, arguments, models and images')
     parser.add_argument('--reset', type=str2bool, default=True,
                         help='Delete save_dir to create a new one')

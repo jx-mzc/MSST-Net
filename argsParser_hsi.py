@@ -61,9 +61,9 @@ def argsParser():
                         help='Training batch size')
     parser.add_argument('--num_epochs', type=int, default=5000,
                         help='The number of training epochs')
-    parser.add_argument('--save_every', type=int, default=50,
+    parser.add_argument('--save_every', type=int, default=100,
                         help='Save period')
-    parser.add_argument('--val_every', type=int, default=5,
+    parser.add_argument('--val_every', type=int, default=10,
                         help='Validation period')
 
 

@@ -13,7 +13,7 @@ def argsParser():
 
 
     ### log setting
-    parser.add_argument('--save_dir', type=str, default='./train/cave',
+    parser.add_argument('--save_dir', type=str, default='./train/cave/8',
                         help='Directory to save log, arguments, models and images')
     parser.add_argument('--reset', type=str2bool, default=True,
                         help='Delete save_dir to create a new one')
@@ -63,17 +63,17 @@ def argsParser():
     parser.add_argument('--msi_num_layers', type=int, default=4)
 
     ###  finetune setting
-    parser.add_argument('--hsi_model_path_1', type=str, default='./train_hsi/1/model/model_05000.pt',
+    parser.add_argument('--hsi_model_path_1', type=str, default='./train_hsi/8/1/model/model_05000.pt',
                         help='The path of model to evaluation')
-    parser.add_argument('--hsi_model_path_2', type=str, default='./train_hsi/2/model/model_05000.pt',
+    parser.add_argument('--hsi_model_path_2', type=str, default='./train_hsi/8/2/model/model_05000.pt',
                         help='The path of model to evaluation')
-    parser.add_argument('--hsi_model_path_3', type=str, default='./train_hsi/3/model/model_05000.pt',
+    parser.add_argument('--hsi_model_path_3', type=str, default='./train_hsi/8/3/model/model_05000.pt',
                         help='The path of model to evaluation')
-    parser.add_argument('--msi_model_path_16', type=str, default='./train_msi/16/model/model_05000.pt',
+    parser.add_argument('--msi_model_path_16', type=str, default='./train_msi/8/16/model/model_05000.pt',
                         help='The path of model to evaluation')
-    parser.add_argument('--msi_model_path_8', type=str, default='./train_msi/8/model/model_05000.pt',
+    parser.add_argument('--msi_model_path_8', type=str, default='./train_msi/8/8/model/model_05000.pt',
                         help='The path of model to evaluation')
-    parser.add_argument('--msi_model_path_32', type=str, default='./train_msi/32/model/model_05000.pt',
+    parser.add_argument('--msi_model_path_32', type=str, default='./train_msi/8/32/model/model_05000.pt',
                         help='The path of model to evaluation')
 
     ### training setting
@@ -87,7 +87,7 @@ def argsParser():
                         help='Validation period')
 
     ##  testing setting
-    parser.add_argument('--model_path', type=str, default='./train/cave/model/model_05000.pt',
+    parser.add_argument('--model_path', type=str, default='./train/cave/8/model/model_05000.pt',
                         help='The path of model to evaluation')
     parser.add_argument('--test', type=str2bool, default=False,
                         help='Test mode')

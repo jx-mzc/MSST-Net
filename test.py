@@ -22,7 +22,7 @@ def main():
 
     ### log setting
 
-    parser.add_argument('--save_dir', type=str, default='',
+    parser.add_argument('--save_dir', type=str, default='./test/cave/8',
                         help='Directory to save log, arguments, models and images')
     parser.add_argument('--reset', type=bool, default=True,
                         help='Delete save_dir to create a new one')
@@ -50,7 +50,7 @@ def main():
     parser.add_argument('--hsi_num_layers', type=int, default=4)
     parser.add_argument('--msi_num_layers', type=int, default=4)
 
-    parser.add_argument('--model_path', type=str, default='',
+    parser.add_argument('--model_path', type=str, default='./train/cave/8/model/model_05000.pt',
                         help='The path of model to evaluation')
 
     args = parser.parse_args()

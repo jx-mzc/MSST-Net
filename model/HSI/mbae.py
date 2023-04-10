@@ -56,6 +56,7 @@ class MBAEViT(nn.Module):
         pos_mask_embed_hsi = nn.Parameter(torch.zeros(1, d, h, w)).to(self.args.hsi_device)
         trunc_normal_(pos_mask_embed_hsi, std=.02)
         decoder_embed = fea_hsi_proj + pos_mask_embed_hsi  # [B, D/2, h, w]
+        
         fea_hsi_de = self.decoder(decoder_embed)  # [B, D/2, h, w]
         outputs = self.restruction(fea_hsi_de.permute(0, 2, 3, 1).reshape(-1, h*w, d)) #[B, h*w, D]
         output_norm = self.norm2(outputs.view(-1, h, w, D)).permute(0, 3, 1, 2) #[B, D, h, w]

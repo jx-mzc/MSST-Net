@@ -370,7 +370,7 @@ class YREDataset(Dataset):
             self.hsi_data, self.msi_data, self.label = self.generateTest(patch_h=64, patch_w=64, ratio=ratio)
 
     def getData(self, ratio):
-        mat = scio.loadmat(self.mat_save_path + 'GF5.mat')
+        mat = scio.loadmat(self.mat_save_path)
         hrhsi = mat['hrhsi']
         lrhsi = mat['lrhsi']
         hrmsi = mat['hrmsi']
@@ -430,7 +430,7 @@ class YREDataset(Dataset):
         lrhsi_patch = np.zeros((1, 192, 192, 280), dtype=np.float32)
         count = 0
 
-        mat = scio.loadmat(self.mat_save_path + 'YRE_576_3.mat')
+        mat = scio.loadmat(self.mat_save_path')
         hrhsi = mat['hrmsi']
         lrhsi = mat['lrhsi']
         hrmsi = mat['hrmsi']

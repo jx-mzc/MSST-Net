@@ -23,8 +23,8 @@ def main():
 
     _model = MPAEViT(args).to(device)
 
-    optimizer = optim.AdamW(_model.parameters(), lr=0.001, betas=(0.9, 0.995), weight_decay=5e-3)
-    scheduler = optim.lr_scheduler.MultiStepLR(optimizer, [100, 300, 1000], gamma=0.1, last_epoch=-1)
+    optimizer = optim.AdamW(_model.parameters(), lr=args.lr, betas=(0.9, 0.995), weight_decay=args.weight_decay)
+    scheduler = optim.lr_scheduler.MultiStepLR(optimizer, args.step, gamma=args.gamma, last_epoch=-1)
 
     ### trainer
     t = Trainer(args, _logger, _dataloader, _model, device, optimizer)

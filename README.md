@@ -38,21 +38,20 @@ of the global relationship in a feature map. In this paper, to exploit the power
 
 
 ## 2. Data Preparation:
-- Download the data including raw `.mat` files and corresponding `.jpg` files used in superpixel segmentation from <a href="https://pan.baidu.com/s/13rq0Ov2tEbLrhZWY6_N8mQ">here</a> (code: gtgr) for a quick start and place them in `GiGCN/`.
+- Download the CAVE dataset from <a href="https://www1.cs.columbia.edu/CAVE/databases/multispectral">here</a>.
 
-- Before trainig, every data set is split by runing `trainTestSplit.py`, shown as follow:
+- Download the Harvard dataset from <a href="http://vision.seas.harvard.edu/hyperspec/explore.html">here</a>.
 
-  ```shell
-  python trainTestSplit.py --name PaviaU (data set name)
-  ```
+- Download the WDCM dataset `.mat` files from <a href="https://pan.baidu.com/s/13rq0Ov2tEbLrhZWY6_N8mQ">here</a> (code: gtgr) for a quick start and place them in `MSST-Net/data/`.
 
-## 3. Training
 
-To train a model, run
+## 3. Pre-training
+
+To pre-train MBAE, run
 
 ```shell
-# Training on PaviaU data set
-python train.py --name PaviaU --block 100 --gpu 0
+# Training on CAVE data set
+python main_hsi.py --name PaviaU --block 100 --gpu 0
 ```
 Here, `--block` denots the number of superpixel, which lies in `[50, 100, 150, 200]` in our ensemble setup.
 

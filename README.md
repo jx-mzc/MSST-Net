@@ -12,15 +12,18 @@ of the global relationship in a feature map. In this paper, to exploit the power
 <hr />
 
 
+The overall architecture diagram of our proposed multiscale spatial–spectral Transformer network.
 ## Network Architecture
 <!-- ![Illustration of MSST-Net](figure/framework.png) -->
 <div aligh=center witdh="200"><img src="figure/framework.png"></div>
 
 
-
+The architecture diagram of the masked patches autoencoder.
 <!-- ![Illustration of hsi pretrain](figure/pretrain_hsi.png) -->
 <img src="figure/pretrain_hsi.png" aligh=center witdh="50px">
 
+
+The architecture diagram of the masked bands autoencoder.
 <!-- ![Illustration of msi pretrain](figure/pretrain_msi.png) -->
 <img src="figure/pretrain_msi.png" aligh=center witdh="50px">
 
@@ -32,12 +35,6 @@ of the global relationship in a feature map. In this paper, to exploit the power
 
 - NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
 
-- Python packages:
-
-  ```shell
-  cd graph-in-graph
-  pip install -r requirements.txt
-  ```
 
 ## 2. Data Preparation:
 - Download the data including raw `.mat` files and corresponding `.jpg` files used in superpixel segmentation from <a href="https://pan.baidu.com/s/1In_ySXoMG7DP5Q1hEyOzXA">here</a> (code: 4zyf) for a quick start and place them in `GiGCN/`.

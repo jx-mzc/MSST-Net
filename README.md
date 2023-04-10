@@ -89,6 +89,6 @@ If this repo helps you, please consider citing our works:
   journal={Information Fusion}, 
   year={2023},
   volume={96},
-  pages={117-129},
+  pages={117-129}
 }
 ```

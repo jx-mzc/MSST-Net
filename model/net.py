@@ -158,6 +158,7 @@ class Net(nn.Module):
         pos_embed_hsi_1 = nn.Parameter(torch.zeros(1, C_1, h, w)).to(self.args.device)
         trunc_normal_(pos_embed_hsi_1, std=.02)
         embed_band_1 = embed_band_1 + pos_embed_hsi_1  # [B, C, h, w]
+        
         fea_hsi_1 = self.spectral_layers(embed_band_1)  # [B, C, h, w]
         fea_hsi_1 = self.norm1(fea_hsi_1.permute(0, 2, 3, 1)).permute(0, 3, 1, 2) #[B, C, h, w]
         x_hsi_1 = self.band_unembed_1(fea_hsi_1) #[B, C, h, w]
@@ -170,6 +171,7 @@ class Net(nn.Module):
         pos_embed_hsi_2 = nn.Parameter(torch.zeros(1, C_2, h, w)).to(self.args.device)
         trunc_normal_(pos_embed_hsi_2, std=.02)
         embed_band_2 = embed_band_2 + pos_embed_hsi_2  # [B, C/2, h, w]
+        
         fea_hsi_2 = self.spectral_layers_2(embed_band_2)  # [B, C/2, h, w]
         fea_hsi_2 = self.norm2(fea_hsi_2.permute(0, 2, 3, 1)).permute(0, 3, 1, 2)  # [B, C/2, h, w]
         x_hsi_2 = self.band_unembed_2(fea_hsi_2)  # [B, C/2, h, w]
@@ -182,6 +184,7 @@ class Net(nn.Module):
         pos_embed_hsi_3 = nn.Parameter(torch.zeros(1, C_3, h, w)).to(self.args.device)
         trunc_normal_(pos_embed_hsi_3, std=.02)
         embed_band_3 = embed_band_3 + pos_embed_hsi_3  # [B, C*2, h, w]
+        
         fea_hsi_3 = self.spectral_layers_3(embed_band_3)  # [B, C*2, h, w]
         fea_hsi_3 = self.norm3(fea_hsi_3.permute(0, 2, 3, 1)).permute(0, 3, 1, 2)  # [B, C*2, h, w]
         x_hsi_3 = self.band_unembed_3(fea_hsi_3)  # [B, C*2, h, w]
@@ -200,6 +203,7 @@ class Net(nn.Module):
         pos_embed_msi_16 = nn.Parameter(torch.zeros(1, d, n_h_16, n_w_16)).to(self.args.device)
         trunc_normal_(pos_embed_msi_16, std=.02)
         embed_patch_16 = embed_patch_16 + pos_embed_msi_16  # [B, d, H, W]
+        
         fea_msi_16 = self.spatial_layers(embed_patch_16) #[B, d, H, W]
         fea_msi_16 = self.norm_16(fea_msi_16.permute(0, 2, 3, 1)).permute(0, 3, 1, 2) #[B, d, H, W]
         x_msi_16 = self.patch_unembed(fea_msi_16) #[B, C, H, W]
@@ -211,6 +215,7 @@ class Net(nn.Module):
         pos_embed_msi_8 = nn.Parameter(torch.zeros(1, d, n_h_8, n_w_8)).to(self.args.device)
         trunc_normal_(pos_embed_msi_8, std=.02)
         embed_patch_8 = embed_patch_8 + pos_embed_msi_8  # [B, d, H*2, W*2]
+        
         fea_msi_8 = self.spatial_layers_8(embed_patch_8)  # [B, d, H*2, W*2]
         fea_msi_8 = self.norm4_8(fea_msi_8.permute(0, 2, 3, 1)).permute(0, 3, 1, 2)  # [B, d, H/patch, W/patch]
         x_msi_8 = self.patch_unembed_8(fea_msi_8)  # [B, C, H, W]
@@ -222,6 +227,7 @@ class Net(nn.Module):
         pos_embed_msi_32 = nn.Parameter(torch.zeros(1, d, n_h_32, n_w_32)).to(self.args.device)
         trunc_normal_(pos_embed_msi_32, std=.02)
         embed_patch_32 = embed_patch_32 + pos_embed_msi_32  # [B, d, H/2, W/2]
+        
         fea_msi_32 = self.spatial_layers_32(embed_patch_32)  # [B, d, H/2, W/2]
         fea_msi_32 = self.norm4_32(fea_msi_32.permute(0, 2, 3, 1)).permute(0, 3, 1, 2)  # [B, d, H/2, W/2]
         x_msi_32 = self.patch_unembed_32(fea_msi_32)  # [B, C, H, W]

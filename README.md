@@ -14,17 +14,17 @@ of the global relationship in a feature map. In this paper, to exploit the power
 
 
 ## Network Architecture
--The overall architecture diagram of our proposed multiscale spatial–spectral Transformer network.
+- The overall architecture diagram of our proposed multiscale spatial–spectral Transformer network.
 <!-- ![Illustration of MSST-Net](figure/framework.png) -->
 <div aligh=center witdh="200"><img src="figure/framework.png"></div>
 
 
--The architecture diagram of the masked patches autoencoder.
+- The architecture diagram of the masked patches autoencoder.
 <!-- ![Illustration of hsi pretrain](figure/pretrain_hsi.png) -->
 <img src="figure/pretrain_hsi.png" aligh=center witdh="50px">
 
 
--The architecture diagram of the masked bands autoencoder.
+- The architecture diagram of the masked bands autoencoder.
 <!-- ![Illustration of msi pretrain](figure/pretrain_msi.png) -->
 <img src="figure/pretrain_msi.png" aligh=center witdh="50px">
 
@@ -45,21 +45,25 @@ of the global relationship in a feature map. In this paper, to exploit the power
 - Download the WDCM dataset `.mat` files from <a href="https://pan.baidu.com/s/13rq0Ov2tEbLrhZWY6_N8mQ">here</a> (code: gtgr) for a quick start and place them in `MSST-Net/data/`.
 
 
-## 3. Pre-training
+## 3. Pre-train
 
-To pre-train MBAE, run
+- To pre-train MBAE, run
 
 ```shell
 # Training on CAVE data set
-python main_hsi.py --name PaviaU --block 100 --gpu 0
+python main_hsi.py --save_dir ./train_hsi/cave/8/1 --dataset cave --ratio 8 --hsi_channel 31 --hsi_embed_dim 32 --hsi_mask_ratio 0.75 --device cuda:0
 ```
-Here, `--block` denots the number of superpixel, which lies in `[50, 100, 150, 200]` in our ensemble setup.
 
-The model with best accuracy will be saved.
+- To pre-train MPAE, run
 
-Note: The `scikit-image` package in our experimental configuaration is of version 0.15.0 whose parameter `start_label` defaults to 0. However, in the lastest version, it defaults to 1. So when encountering the problem that indexes are out of the bounder at `Line 54` in `Trainer.py`, you should set `start_label` as 0 explicitly.
+```shell
+# Training on CAVE data set
+python main_msi.py --save_dir ./train_msi/cave/8/16 --dataset cave --ratio 8 --msi_channel 3 --msi_embed_dim 256 --hsi_mask_ratio 0.5 --patch_size 16 --device cuda:0
+```
 
-## 4. Prediction:
+## 4. Fine-tune
+
+## 5. Test:
 
 To test a trained model, run 
 

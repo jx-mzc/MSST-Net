@@ -51,14 +51,14 @@ of the global relationship in a feature map. In this paper, to exploit the power
 - To pre-train MBAE, run
 
 ```shell
-# Training on CAVE data set
+# Training on CAVE dataset
 python main_hsi.py --save_dir ./train_hsi/cave/8/1 --dataset cave --ratio 8 --hsi_channel 31 --hsi_embed_dim 32 --hsi_mask_ratio 0.75 --device cuda:0
 ```
 
 - To pre-train MPAE, run
 
 ```shell
-# Training on CAVE data set
+# Training on CAVE dataset
 python main_msi.py --save_dir ./train_msi/cave/8/16 --dataset cave --ratio 8 --msi_channel 3 --msi_embed_dim 256 --hsi_mask_ratio 0.5 --patch_size 16 --device cuda:0
 ```
 
@@ -66,7 +66,7 @@ python main_msi.py --save_dir ./train_msi/cave/8/16 --dataset cave --ratio 8 --m
 To fine-tune MSST-Net, run
 
 ```shell
-# Training on CAVE data set
+# Training on CAVE dataset
 python main.py --save_dir ./train/cave/8 --dataset cave --ratio 8 --hsi_channel 31 --msi_channel 3 --hsi_embed_dim 32 --msi_embed_dim 256 --n_feats 64 --patch_size 16  --hsi_model_path_1 ./train_hsi/8/1/model/model_05000.pt --hsi_model_path_2 ./train_hsi/8/2/model/model_05000.pt --hsi_model_path_3 ./train_hsi/8/3/model/model_05000.pt  --msi_model_path_16 ./train_msi/8/16/model/model_05000.pt --msi_model_path_8 ./train_msi/8/8/model/model_05000.pt --msi_model_path_32 ./train_msi/8/32/model/model_05000.pt --device cuda:0
 ```
 
@@ -74,7 +74,7 @@ python main.py --save_dir ./train/cave/8 --dataset cave --ratio 8 --hsi_channel 
 To test a trained model, run 
 
 ```shell
-# Testing on CAVE data set
+# Testing on CAVE dataset
 python test.py --save_dir ./test/cave/8 --dataset cave --ratio 8 --hsi_channel 31 --msi_channel 3 --hsi_embed_dim 32 --msi_embed_dim 256 --n_feats 64 --patch_size 16  --model_path ./train/cave/8/model/model_05000.pt --device cuda:0
 ```
 

@@ -12,18 +12,19 @@ of the global relationship in a feature map. In this paper, to exploit the power
 <hr />
 
 
-The overall architecture diagram of our proposed multiscale spatial–spectral Transformer network.
+
 ## Network Architecture
+###The overall architecture diagram of our proposed multiscale spatial–spectral Transformer network.
 <!-- ![Illustration of MSST-Net](figure/framework.png) -->
 <div aligh=center witdh="200"><img src="figure/framework.png"></div>
 
 
-The architecture diagram of the masked patches autoencoder.
+###The architecture diagram of the masked patches autoencoder.
 <!-- ![Illustration of hsi pretrain](figure/pretrain_hsi.png) -->
 <img src="figure/pretrain_hsi.png" aligh=center witdh="50px">
 
 
-The architecture diagram of the masked bands autoencoder.
+###The architecture diagram of the masked bands autoencoder.
 <!-- ![Illustration of msi pretrain](figure/pretrain_msi.png) -->
 <img src="figure/pretrain_msi.png" aligh=center witdh="50px">
 

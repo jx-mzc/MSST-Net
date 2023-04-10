@@ -86,12 +86,6 @@ def argsParser():
     parser.add_argument('--val_every', type=int, default=5,
                         help='Validation period')
 
-    ##  testing setting
-    parser.add_argument('--model_path', type=str, default='./train/cave/8/model/model_05000.pt',
-                        help='The path of model to evaluation')
-    parser.add_argument('--test', type=str2bool, default=False,
-                        help='Test mode')
-
     args = parser.parse_args()
 
     return args

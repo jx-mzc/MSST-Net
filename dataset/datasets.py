@@ -21,7 +21,7 @@ class CaveDataset(Dataset):
         if self.type=='eval':
             self.hsi_data, self.msi_data, self.label = self.generateEval(patch_size=64*1, ratio=ratio, num_star=23, num_end=28, s=1)
         if self.type=='test':
-            self.hsi_data, self.msi_data, self.label = self.generateTest(patch_size=16*1, ratio=ratio, num_star=28, num_end=33, s=4)
+            self.hsi_data, self.msi_data, self.label = self.generateTest(patch_size=64*1, ratio=ratio, num_star=28, num_end=33, s=1)
 
 
     def generateTrain(self, patch_size, ratio, num_star, num_end, s):

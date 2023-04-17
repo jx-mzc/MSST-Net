@@ -85,6 +85,9 @@ def argsParser():
                         help='Save period')
     parser.add_argument('--val_every', type=int, default=5,
                         help='Validation period')
+    parser.add_argument('--test', type=str2bool, default=False,
+                        help='Test mode')
+
 
     args = parser.parse_args()
 

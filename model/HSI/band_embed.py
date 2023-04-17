@@ -15,4 +15,4 @@ class BandEmbed(nn.Module):
         out = self.norm(embed_band.permute(0, 2, 3, 1))  # [B, h, w, D]
         out = out.permute(0, 3, 1, 2)  # [B, D, h, w]
 
-        return x
+        return out

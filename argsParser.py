@@ -59,6 +59,8 @@ def argsParser():
     parser.add_argument('--msi_heads', type=int, default=4)
     parser.add_argument('--patch_size', type=int, default=16)
     parser.add_argument('--n_feats', type=int, default=64)
+    parser.add_argument('--hsi_res_blocks', type=int, default=5)
+    parser.add_argument('--msi_res_blocks', type=int, default=5)
     parser.add_argument('--hsi_num_layers', type=int, default=4)
     parser.add_argument('--msi_num_layers', type=int, default=4)
 

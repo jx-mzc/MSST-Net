@@ -35,7 +35,8 @@ class Attention(nn.Module):
         b, h, w, c = x_in.shape
         x = x_in.reshape(b,h*w,c)
 
-        qkv = self.qkv(x).reshape(b, h * w // self.num_heads, 3, self.num_heads, c).permute(2, 0, 3, 1, 4)
+        #qkv = self.qkv(x).reshape(b, h * w // self.num_heads, 3, self.num_heads, c).permute(2, 0, 3, 1, 4)
+        qkv = self.qkv(x).reshape(b, h * w // self.num_heads, self.num_heads, 3, c).permute(3, 0, 2, 1, 4)
         q, k, v = qkv[0], qkv[1], qkv[2]  # [b, heads, h*w/heads, c]
         # q = self.to_q(x).reshape(b, h * w // self.num_heads, self.num_heads, c).permute(0, 2, 1, 3) #[b, heads, h*w/heads, c]
         # k = self.to_k(x).reshape(b, h * w // self.num_heads, self.num_heads, c).permute(0, 2, 1, 3)

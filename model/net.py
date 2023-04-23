@@ -159,7 +159,7 @@ class Net(nn.Module):
         trunc_normal_(pos_embed_hsi_1, std=.02)
         embed_band_1 = embed_band_1 + pos_embed_hsi_1  # [B, C, h, w]
         
-        fea_hsi_1 = self.spectral_layers(embed_band_1)  # [B, C, h, w]
+        fea_hsi_1 = self.spectral_layers_1(embed_band_1)  # [B, C, h, w]
         fea_hsi_1 = self.norm1(fea_hsi_1.permute(0, 2, 3, 1)).permute(0, 3, 1, 2) #[B, C, h, w]
         x_hsi_1 = self.band_unembed_1(fea_hsi_1) #[B, C, h, w]
         x_hsi_1 = self.conv1(x_hsi_1)  # [B, C, h, w]
@@ -204,7 +204,7 @@ class Net(nn.Module):
         trunc_normal_(pos_embed_msi_16, std=.02)
         embed_patch_16 = embed_patch_16 + pos_embed_msi_16  # [B, d, H, W]
         
-        fea_msi_16 = self.spatial_layers(embed_patch_16) #[B, d, H, W]
+        fea_msi_16 = self.spatial_layers_16(embed_patch_16) #[B, d, H, W]
         fea_msi_16 = self.norm_16(fea_msi_16.permute(0, 2, 3, 1)).permute(0, 3, 1, 2) #[B, d, H, W]
         x_msi_16 = self.patch_unembed(fea_msi_16) #[B, C, H, W]
         x_msi_16 = self.conv2(x_msi_16) #[B, C, H, W]

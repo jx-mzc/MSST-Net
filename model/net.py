@@ -31,8 +31,8 @@ class Net(nn.Module):
         super(Net, self).__init__()
         self.args = args
         # shallow feature extraction
-        self.shallow1 = nn.Conv2d(args.hsi_channel + args.msi_channel, args.hsi_channel, 3, 1, 1)
-        self.shallow2 = nn.Conv2d(args.hsi_channel + args.msi_channel, args.hsi_channel, 3, 1, 1)
+        self.shallow1 = nn.Conv2d(args.hsi_channel + args.msi_channel, args.n_feats, 3, 1, 1)
+        self.shallow2 = nn.Conv2d(args.hsi_channel + args.msi_channel, args.n_feats, 3, 1, 1)
 
         self.RB1 = nn.ModuleList()
         self.RB2 = nn.ModuleList()

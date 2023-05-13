@@ -1,4 +1,4 @@
-# Multiscale Spatial–spectral Transformer Network for Hyperspectral and Multispectral Image Fusion (INFFUS 2023)
+# Multiscale Spatial–spectral Transformer Network for Hyperspectral and Multispectral Image Fusion (INFFUS)
 
 
 [Sen Jia](https://scholar.google.com.hk/citations?hl=zh-CN&user=UxbDMKoAAAAJ), Zhichao Min, [Xiyou Fu](https://scholar.google.com.hk/citations?user=DFgGGCQAAAAJ&hl=zh-CN&oi=sra)
